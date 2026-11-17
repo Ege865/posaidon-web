@@ -170,6 +170,33 @@
     status.textContent = 'WhatsApp yeni sekmede açıldı; mesajınız hazır, göndermeniz yeterli.';
   });
 
+  /* ---------- Hizmetler: seçilen hizmetin önizlemesi ---------- */
+  const svcs = $$('[data-svc]');
+  const stages = $$('[data-stage]');
+  let svcIndex = 0;
+  function showSvc(i) {
+    if (i === svcIndex) return;
+    const prev = stages[svcIndex];
+    const next = stages[i];
+    svcIndex = i;
+    svcs.forEach((b, k) => b.setAttribute('aria-pressed', String(k === i)));
+    if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.killTweensOf([prev, next]);
+      gsap.to(prev, { autoAlpha: 0, y: -16, duration: 0.3, ease: 'power2.in', onComplete: () => { prev.classList.remove('is-on'); gsap.set(prev, { clearProps: 'all' }); } });
+      next.classList.add('is-on');
+      gsap.fromTo(next, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.7, ease: 'expo.out', delay: 0.15 });
+      gsap.from(next.children, { y: 30, scale: 0.96, duration: 0.8, ease: 'expo.out', stagger: 0.08, delay: 0.2 });
+    } else {
+      prev.classList.remove('is-on');
+      next.classList.add('is-on');
+    }
+  }
+  svcs.forEach((b, i) => {
+    b.addEventListener('click', () => showSvc(i));
+    b.addEventListener('focus', () => showSvc(i));
+    b.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) showSvc(i); });
+  });
+
   /* ---------- GSAP ---------- */
   const steps = $$('[data-step]');
   if (!window.gsap) { reveal(); steps.forEach((s) => s.classList.add('is-done')); return; }
@@ -260,6 +287,22 @@
 
     /* --- Alt bilgi: logo yazısı soldan açılır --- */
     gsap.fromTo('.foot__word', { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 1.4, ease: 'expo.inOut', scrollTrigger: { trigger: '.foot', start: 'top 85%', once: true } });
+
+    /* --- Hizmetler --- */
+    gsap.from('.services__head p', { x: 60, autoAlpha: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: '.services__head', start: 'top 82%', once: true } });
+    gsap.from('.svc-list li', { x: -60, autoAlpha: 0, duration: 1, ease: 'expo.out', stagger: 0.08, scrollTrigger: { trigger: '.svc-list', start: 'top 85%', once: true } });
+    gsap.from('.svc-stage', { x: 80, autoAlpha: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.svc-stage', start: 'top 85%', once: true } });
+    gsap.to('.film-card__fill', { width: '100%', duration: 3.2, ease: 'none', repeat: -1, repeatDelay: 0.4 });
+
+    /* --- Kapanış bandı: fotoğraf yavaşça yaklaşır --- */
+    gsap.fromTo('.close__photo', { scale: 1.15 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.close', start: 'top bottom', end: 'bottom top', scrub: true } });
+    gsap.from('.close__body > p, .close .hero__actions', { y: 20, autoAlpha: 0, duration: 1, ease: 'expo.out', stagger: 0.12, scrollTrigger: { trigger: '.close__body', start: 'top 80%', once: true } });
+
+    /* --- SSS: sorular sağdan gelir, açılan cevap kayarak belirir --- */
+    gsap.from('[data-qa]', { x: 60, autoAlpha: 0, duration: 0.9, ease: 'expo.out', stagger: 0.07, scrollTrigger: { trigger: '.faq__list', start: 'top 85%', once: true } });
+    $$('[data-qa]').forEach((d) => d.addEventListener('toggle', () => {
+      if (d.open) gsap.from($('p', d), { y: -8, autoAlpha: 0, duration: 0.5, ease: 'expo.out' });
+    }));
 
     return () => reveal();
   });

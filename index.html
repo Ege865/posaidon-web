@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=40">
+  <link rel="stylesheet" href="css/style.css?v=51">
   <script>document.documentElement.classList.add('js','pre');setTimeout(function(){document.documentElement.classList.remove('pre')},3500)</script>
 </head>
 <body>
@@ -28,8 +28,10 @@
       </a>
       <nav class="nav__links" aria-label="Ana menü">
         <a href="#hakkimizda">hakkımızda</a>
+        <a href="#hizmetler">hizmetler</a>
         <a href="#paketler">paketler</a>
         <a href="#isler">örnek çalışmalar</a>
+        <a href="#sss">sss</a>
       </nav>
       <span class="nav__clock" aria-hidden="true"><span data-clock>--:--</span></span>
       <a class="nav__ghost" href="#iletisim">iletişim</a>
@@ -42,8 +44,10 @@
   <div class="menu" id="mobil-menu" data-menu hidden>
     <nav class="menu__links" aria-label="Mobil menü">
       <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#hizmetler">Hizmetler</a>
       <a href="#paketler">Paketler</a>
       <a href="#isler">Örnek çalışmalar</a>
+      <a href="#sss">Sık sorulan sorular</a>
       <a href="#basvuru">Başvuru formu</a>
       <a href="#iletisim">İletişim</a>
     </nav>
@@ -109,6 +113,82 @@
             <span>tanıtım filmini izle</span>
           </button>
         </figure>
+      </div>
+    </section>
+
+    <!-- HİZMETLER -->
+    <section class="services" id="hizmetler">
+      <div class="wrap">
+        <div class="services__head">
+          <h2 class="h2" data-split>Bir siteyle başlar, bütün markanız olur.</h2>
+          <p>Web sitesiyle başlıyoruz. İsterseniz logonuzu, tanıtım filminizi ve PR çalışmanızı da aynı yerden, aynı tasarımcıyla yürütüyoruz.</p>
+        </div>
+
+        <div class="services__grid">
+          <ol class="svc-list" role="list">
+            <li><button class="svc" type="button" aria-pressed="true" data-svc="0">
+              <span class="svc__no">01</span>
+              <span class="svc__body"><span class="svc__name">Web sitesi tasarımı</span><span class="svc__text">Tek sayfadan e-ticarete; işinize göre tasarlanmış, telefonda ve bilgisayarda düzgün çalışan siteler.</span></span>
+            </button></li>
+            <li><button class="svc" type="button" aria-pressed="false" data-svc="1">
+              <span class="svc__no">02</span>
+              <span class="svc__body"><span class="svc__name">Logo tasarımı</span><span class="svc__text">Tabelada, kartvizitte ve sosyal medyada aynı şekilde tanınacak bir işaret.</span></span>
+            </button></li>
+            <li><button class="svc" type="button" aria-pressed="false" data-svc="2">
+              <span class="svc__no">03</span>
+              <span class="svc__body"><span class="svc__name">Tanıtım filmi</span><span class="svc__text">İşinizi birkaç saniyede anlatan, sitenizde ve sosyal medyada kullanabileceğiniz kısa bir film.</span></span>
+            </button></li>
+            <li><button class="svc" type="button" aria-pressed="false" data-svc="3">
+              <span class="svc__no">04</span>
+              <span class="svc__body"><span class="svc__name">PR çalışması</span><span class="svc__text">Yeni sitenizi ve markanızı doğru yerlerde, doğru sözlerle duyurmak.</span></span>
+            </button></li>
+          </ol>
+
+          <div class="svc-stage" aria-hidden="true">
+            <!-- 01: örnek site önizlemesi (temsilî) -->
+            <div class="stage is-on" data-stage="0">
+              <div class="mock-browser">
+                <div class="mock-browser__bar"><i></i><i></i><i></i><span>siteniz.com</span></div>
+                <div class="mock-site">
+                  <div class="mock-site__nav"><b>Liman Kafe</b><span>menü</span><span>rezervasyon</span><span>iletişim</span></div>
+                  <div class="mock-site__hero" style="background-image:url(media/foto/photo-f105649975-960.jpg)">
+                    <p class="mock-site__title">Denize karşı<br>sabah kahvesi.</p>
+                    <span class="mock-site__btn">masa ayırt</span>
+                  </div>
+                  <div class="mock-site__row"><span></span><span></span><span></span></div>
+                </div>
+              </div>
+              <div class="mock-phone">
+                <div class="mock-phone__screen" style="background-image:url(media/foto/photo-f105649975-960.jpg)"><p>Liman Kafe</p><span>menüyü gör</span></div>
+              </div>
+            </div>
+            <!-- 02: logo yapım ızgarası -->
+            <div class="stage stage--logo" data-stage="1">
+              <div class="logo-grid">
+                <span class="logo-grid__c logo-grid__c--1"></span><span class="logo-grid__c logo-grid__c--2"></span>
+                <img src="media/mark-light-520.png" alt="" width="388" height="520">
+              </div>
+              <div class="logo-swatches"><span style="--c:#06101f"></span><span style="--c:#1d4f8f"></span><span style="--c:#f2efe8"></span><span style="--c:#ff5a1f"></span></div>
+            </div>
+            <!-- 03: film karesi -->
+            <div class="stage stage--film" data-stage="2">
+              <div class="film-card" style="background-image:url(media/foto/photo-f82649878-960.jpg)">
+                <span class="film-card__play"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                <div class="film-card__bar"><span class="film-card__fill"></span></div>
+                <span class="film-card__time">0:18</span>
+              </div>
+            </div>
+            <!-- 04: duyuru kartı -->
+            <div class="stage stage--pr" data-stage="3">
+              <div class="post">
+                <div class="post__head"><span class="post__avatar"><img src="media/mark-light-520.png" alt="" width="388" height="520"></span><b>markanız</b><span>· şimdi</span></div>
+                <div class="post__img" style="background-image:url(media/foto/photo-f105649975-960.jpg)"><p>Yeni sitemiz<br>yayında.</p></div>
+                <p class="post__text">Menümüz, rezervasyon ve iletişim bilgilerimiz artık tek adreste.</p>
+              </div>
+              <div class="press"><span class="label">duyuru metni</span><p>“Yeni web sitemizle müşterilerimize daha kolay ulaşıyoruz.”</p></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -239,6 +319,62 @@
           <li class="shot" data-shot><div class="shot__frame"><div class="shot__empty"><img src="media/mark-light-520.png" alt="" width="388" height="520"></div></div><p class="shot__cap"><span>Çalışma 03</span><span>yakında</span></p></li>
           <li class="shot shot--wide" data-shot><div class="shot__frame"><div class="shot__empty"><img src="media/mark-light-520.png" alt="" width="388" height="520"></div></div><p class="shot__cap"><span>Çalışma 04</span><span>yakında</span></p></li>
         </ul>
+      </div>
+    </section>
+
+    <!-- KAPANIŞ BANDI -->
+    <section class="close">
+      <div class="close__frame">
+        <img class="close__photo" src="media/foto/photo-f82649878-960.jpg" srcset="media/foto/photo-f82649878-960.jpg 960w, media/foto/photo-f82649878.jpg 1280w" sizes="100vw" width="1280" height="962" alt="" loading="lazy" data-source="stand-in" data-subject="stand-in">
+        <div class="close__shade" aria-hidden="true"></div>
+        <div class="close__body">
+          <h2 class="close__title" data-split>Sıradaki site sizinki olsun.</h2>
+          <p>Başvuru ücretsiz; ihtiyacınızı dinleyip size özel bir teklifle dönüyoruz.</p>
+          <div class="hero__actions">
+            <a class="chip chip--solid" href="#basvuru">başvuru yap</a>
+            <a class="chip" href="https://wa.me/905550459337" target="_blank" rel="noopener">whatsapp’tan yazın</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIK SORULAN SORULAR -->
+    <section class="faq" id="sss">
+      <div class="wrap faq__grid">
+        <div class="faq__side">
+          <h2 class="h2" data-split>Sık sorulan sorular</h2>
+          <p>Burada cevabını bulamadığınız bir soru varsa bize yazın.</p>
+        </div>
+        <div class="faq__list">
+          <details class="qa" data-qa>
+            <summary>Web sitem ne kadar sürede hazır olur?</summary>
+            <p>Sitenin kapsamına göre değişir; tek sayfalık bir siteyle e-ticaret sitesi aynı sürede bitmez. Başvurunuzu inceledikten sonra size net bir takvim veriyoruz.</p>
+          </details>
+          <details class="qa" data-qa>
+            <summary>Fiyatlar neden sitede yazmıyor?</summary>
+            <p>Her site size özel tasarlandığı için fiyat; sayfa sayısına, istediğiniz özelliklere ve seçtiğiniz pakete göre değişir. Başvurunuzdan sonra size özel teklif gönderiyoruz.</p>
+          </details>
+          <details class="qa" data-qa>
+            <summary>Hangi paketi seçmem gerektiğinden emin değilim.</summary>
+            <p>Formda “Karar vermedim”i seçmeniz yeterli. İhtiyacınızı dinleyip size uygun paketi birlikte belirleriz.</p>
+          </details>
+          <details class="qa" data-qa>
+            <summary>Mevcut sitemi yenileyebilir misiniz?</summary>
+            <p>Evet. Başvuru formunda site türü olarak “Sitemi yenileme”yi seçin; mevcut sitenizi inceleyip neyin değişmesi gerektiğini konuşalım.</p>
+          </details>
+          <details class="qa" data-qa>
+            <summary>Sitem telefonda da düzgün görünecek mi?</summary>
+            <p>Evet. Tasarladığımız her site telefon, tablet ve bilgisayarda denenir; ziyaretçileriniz hangi cihazdan girerse girsin rahatça kullanır.</p>
+          </details>
+          <details class="qa" data-qa>
+            <summary>Logo, tanıtım filmi ya da PR’ı sonradan ekleyebilir miyim?</summary>
+            <p>Evet. Web sitesiyle başlayıp markanız büyüdükçe bu hizmetleri aynı yerden ekleyebilirsiniz; Posaidon Pro paketi hepsini bir arada sunar.</p>
+          </details>
+          <details class="qa" data-qa>
+            <summary>Başvurmak beni bir şeye bağlar mı?</summary>
+            <p>Hayır. Başvuru ücretsizdir. Bilgileriniz yalnızca size dönüş yapmak için kullanılır; ayrıntılar <a href="aydinlatma-metni.html">KVKK Aydınlatma Metni</a>’nde.</p>
+          </details>
+        </div>
       </div>
     </section>
 
@@ -374,6 +510,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomWiggle.min.js"></script>
   <script src="js/config.js?v=2"></script>
-  <script src="js/main.js?v=40"></script>
+  <script src="js/main.js?v=51"></script>
 </body>
 </html>
