@@ -1,0 +1,20 @@
+# Yayına girmeyen geliştirme dosyaları
+.DS_Store
+.claude/
+.impeccable/
+.taste-skill/
+.old/
+tools/
+PRODUCT.md
+supabase/
+
+# Sayfanın kullanmadığı kaynak görseller (klasörde durur, yayına girmez)
+media/logo-light.png
+media/logo-src.png
+media/mark-light.png
+media/mark-navy.png
+media/mark-navy-stamp.png
+media/word-light.png
+media/foto/credits.json
+media/foto/*-500.jpg
+media/foto/photo-f82649878.jpg
