@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=32">
+  <link rel="stylesheet" href="css/style.css?v=40">
   <script>document.documentElement.classList.add('js','pre');setTimeout(function(){document.documentElement.classList.remove('pre')},3500)</script>
 </head>
 <body>
@@ -331,6 +331,15 @@
             <input id="f-site" name="website" type="text" tabindex="-1" autocomplete="off">
           </div>
 
+          <div class="field consent" data-field>
+            <label class="consent__row" for="f-onay">
+              <input id="f-onay" name="onay" type="checkbox" value="evet" required>
+              <span class="consent__box" aria-hidden="true"></span>
+              <span class="consent__text"><a href="aydinlatma-metni.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>’ni okudum ve anladım.</span>
+            </label>
+            <p class="field__err" id="e-onay"></p>
+          </div>
+
           <div class="form__foot">
             <button class="btn btn--accent" type="submit">Başvuruyu gönder</button>
             <button class="btn btn--line" type="button" data-whatsapp>WhatsApp ile gönder</button>
@@ -351,6 +360,7 @@
           <a href="#paketler">paketler</a>
           <a href="#isler">örnek çalışmalar</a>
           <a href="#basvuru">başvuru</a>
+          <a href="aydinlatma-metni.html">kvkk aydınlatma metni</a>
         </nav>
         <p><a href="mailto:posaidonweb@gmail.com">posaidonweb@gmail.com</a> · <a href="tel:+905550459337">0555 045 93 37</a></p>
       </div>
@@ -364,6 +374,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomWiggle.min.js"></script>
   <script src="js/config.js?v=2"></script>
-  <script src="js/main.js?v=31"></script>
+  <script src="js/main.js?v=40"></script>
 </body>
 </html>

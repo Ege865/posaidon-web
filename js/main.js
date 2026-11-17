@@ -55,8 +55,9 @@
     kimin: (v) => (!v ? 'Sitenin kimin için olduğunu seçin.' : ''),
     tur: (v) => (!v ? 'Bir site türü seçin; emin değilseniz "Emin değilim"i seçin.' : ''),
     mesaj: (v) => (v.trim().length < 10 ? 'Birkaç cümleyle işinizden bahsedin.' : ''),
+    onay: (v) => (v !== 'evet' ? 'Devam etmek için KVKK Aydınlatma Metni’ni okuduğunuzu onaylayın.' : ''),
   };
-  const errId = { ad: 'e-ad', eposta: 'e-mail', telefon: 'e-tel', paket: 'e-paket', kimin: 'e-kimin', tur: 'e-tur', mesaj: 'e-mesaj' };
+  const errId = { ad: 'e-ad', eposta: 'e-mail', telefon: 'e-tel', paket: 'e-paket', kimin: 'e-kimin', tur: 'e-tur', mesaj: 'e-mesaj', onay: 'e-onay' };
   const val = (n) => String(new FormData(form).get(n) || '');
 
   function check(name) {
@@ -88,8 +89,8 @@
   ].filter((l) => l !== null).join('\n');
 
   Object.keys(rules).forEach((n) => {
-    $$(`[name="${n}"]`, form).forEach((i) => i.addEventListener(i.type === 'radio' ? 'change' : 'blur', () => {
-      if (i.type === 'radio' || i.closest('[data-field]').classList.contains('has-error') || i.value) check(n);
+    $$(`[name="${n}"]`, form).forEach((i) => i.addEventListener(i.type === 'radio' || i.type === 'checkbox' ? 'change' : 'blur', () => {
+      if (i.type === 'radio' || i.type === 'checkbox' || i.closest('[data-field]').classList.contains('has-error') || i.value) check(n);
     }));
   });
   $$('[data-pick]').forEach((a) => a.addEventListener('click', () => {
@@ -134,6 +135,7 @@
     const d = validate(); if (!d) return;
     if (d.website) return; // bot tuzağı doldurulmuşsa sessizce yok say
     delete d.website;
+    delete d.onay;
 
     if (!hasDb) {
       const subject = `Web sitesi başvurusu: ${d.ad} (${d.paket})`;
