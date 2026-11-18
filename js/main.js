@@ -208,6 +208,9 @@
   mm.add('(prefers-reduced-motion: reduce)', () => { reveal(); steps.forEach((s) => s.classList.add('is-done')); });
 
   mm.add('(prefers-reduced-motion: no-preference)', () => {
+    const sk = document.querySelector('[data-sketch]');
+    if (sk) gsap.fromTo(sk, { '--cut': '8%' }, { '--cut': '92%', ease: 'none',
+      scrollTrigger: { trigger: sk, start: 'top 75%', end: 'bottom 30%', scrub: 0.6 } });
     /* --- Giriş: fotoğraf yavaşça yaklaşır, logo belirir, satırlar soldan ve sağdan gelir --- */
     document.fonts.ready.then(() => {
       const mark = $('[data-hero-mark]');
