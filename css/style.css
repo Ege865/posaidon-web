@@ -2,14 +2,17 @@
    Referanslar: set.space (koyu zemin, içeriden fotoğraf, serif başlık, mono küçük harf menü, turuncu buton)
    ve auxia (açık panelde etiketli adımlar, tikli liste, önizleme kartı). Zemin videodaki lacivert. */
 :root {
-  --bg: #06101f;
-  --bg-2: #0b1a30;
-  --bg-3: #10233f;
-  --ink: #f2efe8;
-  --ink-2: #c3cad6;
-  --muted: #8d99ad;
-  --line: rgba(242, 239, 232, 0.13);
-  --line-2: rgba(242, 239, 232, 0.26);
+  --bg: #1b4c88;            /* gökyüzünün üst tonu: menü ve geçişler */
+  --sky-top: #1a4a86;
+  --sky-mid: #2a67ad;
+  --sky-low: #3572b8;
+  --bg-2: rgba(8, 26, 54, 0.38);
+  --bg-3: rgba(8, 26, 54, 0.55);
+  --ink: #ffffff;
+  --ink-2: #eaf1fa;
+  --muted: #d3e2f4;
+  --line: rgba(255, 255, 255, 0.2);
+  --line-2: rgba(255, 255, 255, 0.38);
   --accent: #ff5a1f;
   --accent-2: #ff7440;
   --accent-ink: #1a0a03;
@@ -31,7 +34,8 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+html { background: var(--sky-top); }
+body { margin: 0; position: relative; isolation: isolate; background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 55%, var(--sky-low) 100%) fixed; color: var(--ink); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; overflow-x: clip; }
 main { overflow-x: clip; }
 img, video, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
@@ -426,4 +430,52 @@ html { scrollbar-color: var(--bg-3) var(--bg); }
   .mock-site__nav span { display: none; }
   .mock-phone__screen p { font-size: 11px; }
   .mock-phone__screen span { font-size: 7px; }
+}
+
+/* ---------- Gökyüzü ve bulutlar ---------- */
+.sky { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.cloud { position: absolute; width: var(--w, 520px); aspect-ratio: 2.6 / 1; opacity: var(--o, .55); filter: blur(14px);
+  background:
+    radial-gradient(closest-side at 30% 62%, #fff 0 60%, transparent 100%),
+    radial-gradient(closest-side at 52% 42%, #fff 0 62%, transparent 100%),
+    radial-gradient(closest-side at 72% 60%, #fff 0 58%, transparent 100%),
+    radial-gradient(closest-side at 50% 72%, rgba(255,255,255,.9) 0 55%, transparent 100%);
+  background-size: 55% 90%, 60% 100%, 50% 85%, 90% 60%; background-repeat: no-repeat;
+  background-position: 0% 70%, 40% 0%, 100% 70%, 50% 100%; }
+.legal-page .sky { display: none; }
+
+/* ---------- Tanıtım metninin yanındaki görsel (yalnızca geniş ekran) ---------- */
+.intro__top { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.intro__top .statement { grid-column: 1; grid-row: 1; }
+.intro__art { grid-column: 2; grid-row: 1; position: relative; aspect-ratio: 1 / 1; max-width: 520px; justify-self: end; width: 100%; }
+.art-browser { position: absolute; left: 0; top: 6%; width: 86%; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -24px rgba(8, 26, 54, .6); }
+.art-browser__img { aspect-ratio: 16 / 10; background: center / cover; display: flex; align-items: flex-end; padding: 18px; }
+.art-browser__img p { font: 400 26px/1.05 var(--serif); color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, .3); }
+.art-biz { position: absolute; right: 0; bottom: 12%; transform: rotate(-4deg); }
+.art-logo { position: absolute; left: 10%; bottom: 0; width: 92px; height: 92px; border-radius: 50%; background: rgba(8, 26, 54, .55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: grid; place-items: center; box-shadow: 0 20px 40px -20px rgba(8, 26, 54, .7); }
+.art-logo img { width: 30px; height: auto; }
+
+/* Kartvizit / davetiye kartları */
+.pcard { width: 230px; padding: 18px 20px; background: #fbfaf6; color: #14171c; border-radius: 4px; box-shadow: 0 24px 48px -20px rgba(8, 26, 54, .7); }
+.pcard img { width: 18px; height: auto; filter: brightness(0) saturate(100%) invert(18%) sepia(36%) saturate(1700%) hue-rotate(195deg); }
+.pcard__name { margin-top: 26px; font: 400 20px/1.1 var(--serif); }
+.pcard__small { margin-top: 6px; font: 400 11px var(--mono); color: #5d6470; }
+.pcard .label { color: #8a7a55; }
+.pcard--biz { aspect-ratio: 85 / 55; display: flex; flex-direction: column; justify-content: space-between; }
+.pcard--biz .pcard__name { margin-top: auto; }
+.pcard--invite { width: 240px; aspect-ratio: 5 / 7; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1px solid #e3dccb; outline: 1px solid #c9b88f; outline-offset: -10px; }
+.pcard__big { margin-top: 14px; font: italic 400 34px/1.05 var(--serif); }
+.stage--print .pcard--invite { position: absolute; left: 14%; top: 10%; transform: rotate(-3deg); }
+.stage--print .pcard--biz { position: absolute; right: 12%; bottom: 14%; transform: rotate(4deg); }
+
+.pack__note { margin-top: 16px; font: 400 13px var(--mono); color: var(--muted); }
+
+@media (max-width: 1080px) {
+  .intro__top { grid-template-columns: 1fr; }
+  .intro__art { display: none; }
+}
+@media (max-width: 720px) {
+  .pcard--invite { width: 170px; }
+  .pcard__big { font-size: 24px; }
+  .stage--print .pcard--biz { width: 180px; }
 }

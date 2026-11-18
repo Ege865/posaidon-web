@@ -304,6 +304,15 @@
       if (d.open) gsap.from($('p', d), { y: -8, autoAlpha: 0, duration: 0.5, ease: 'expo.out' });
     }));
 
+    /* --- Tanıtım görseli: parçalar sağdan süzülür --- */
+    gsap.from('.intro__art > *', { x: 90, y: 20, rotation: 3, autoAlpha: 0, duration: 1.3, ease: 'expo.out', stagger: 0.14, scrollTrigger: { trigger: '.intro__art', start: 'top 85%', once: true } });
+
+    /* --- Bulutlar: kaydırdıkça farklı hızlarda süzülür, yavaşça yana kayar --- */
+    $$('.cloud').forEach((c, i) => {
+      gsap.to(c, { yPercent: -120 - (i % 3) * 60, ease: 'none', scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 1 } });
+      gsap.to(c, { x: i % 2 ? -80 : 80, duration: 18 + i * 3, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+    });
+
     return () => reveal();
   });
 })();

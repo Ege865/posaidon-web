@@ -14,11 +14,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=51">
+  <link rel="stylesheet" href="css/style.css?v=70">
   <script>document.documentElement.classList.add('js','pre');setTimeout(function(){document.documentElement.classList.remove('pre')},3500)</script>
 </head>
 <body>
   <a class="skip" href="#icerik">İçeriğe geç</a>
+  <div class="sky" aria-hidden="true">
+    <span class="cloud" style="top:9%;left:-6%;--w:560px;--o:.5"></span>
+    <span class="cloud" style="top:17%;right:-8%;--w:440px;--o:.4"></span>
+    <span class="cloud" style="top:31%;left:58%;--w:620px;--o:.35"></span>
+    <span class="cloud" style="top:46%;left:-10%;--w:500px;--o:.45"></span>
+    <span class="cloud" style="top:62%;right:-6%;--w:580px;--o:.4"></span>
+    <span class="cloud" style="top:78%;left:20%;--w:460px;--o:.35"></span>
+    <span class="cloud" style="top:91%;right:10%;--w:520px;--o:.45"></span>
+  </div>
 
   <header class="nav" data-nav>
     <div class="nav__row">
@@ -33,7 +42,6 @@
         <a href="#isler">örnek çalışmalar</a>
         <a href="#sss">sss</a>
       </nav>
-      <span class="nav__clock" aria-hidden="true"><span data-clock>--:--</span></span>
       <a class="nav__ghost" href="#iletisim">iletişim</a>
       <a class="nav__cta" href="#basvuru">başvuru yap</a>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobil-menu" data-menu-toggle>
@@ -85,7 +93,14 @@
     <!-- 1b. TANITIM METNİ -->
     <section class="intro" id="hakkimizda">
       <div class="wrap">
+        <div class="intro__top">
+        <div class="intro__art" aria-hidden="true">
+          <div class="art-browser"><div class="mock-browser__bar"><i></i><i></i><i></i><span>siteniz.com</span></div><div class="art-browser__img" style="background-image:url(media/foto/photo-f105649975-960.jpg)"><p>Size özel<br>bir site.</p></div></div>
+          <div class="pcard pcard--biz art-biz"><img src="media/mark-light-520.png" alt="" width="388" height="520"><p class="pcard__name">Posaidon Web</p><p class="pcard__small">posaidonweb@gmail.com</p></div>
+          <div class="art-logo"><img src="media/mark-light-520.png" alt="" width="388" height="520"></div>
+        </div>
         <p class="statement" data-highlight>Posaidon Web, işinizi dinleyen bir tasarımcının elinden çıkan, size özel web siteleri tasarlar. Her yerde gördüğünüz kalıp sitelerden değil; sizin işinize, müşterinize ve tarzınıza göre çizilmiş bir siteden söz ediyoruz.</p>
+        </div>
 
         <div class="facts">
           <p class="label">neden biz</p>
@@ -142,6 +157,10 @@
               <span class="svc__no">04</span>
               <span class="svc__body"><span class="svc__name">PR çalışması</span><span class="svc__text">Yeni sitenizi ve markanızı doğru yerlerde, doğru sözlerle duyurmak.</span></span>
             </button></li>
+            <li><button class="svc" type="button" aria-pressed="false" data-svc="4">
+              <span class="svc__no">05</span>
+              <span class="svc__body"><span class="svc__name">Kartvizit ve davetiye</span><span class="svc__text">Sitenizle aynı dili konuşan kartvizitler; düğün, nişan ve etkinlikler için davetiyeler.</span></span>
+            </button></li>
           </ol>
 
           <div class="svc-stage" aria-hidden="true">
@@ -186,6 +205,11 @@
                 <p class="post__text">Menümüz, rezervasyon ve iletişim bilgilerimiz artık tek adreste.</p>
               </div>
               <div class="press"><span class="label">duyuru metni</span><p>“Yeni web sitemizle müşterilerimize daha kolay ulaşıyoruz.”</p></div>
+            </div>
+            <!-- 05: kartvizit ve davetiye (temsilî) -->
+            <div class="stage stage--print" data-stage="4">
+              <div class="pcard pcard--invite"><span class="label">davetiye</span><p class="pcard__big">Ayşe<br>&amp; Mert</p><p class="pcard__small">12 Haziran · Saat 19.00</p></div>
+              <div class="pcard pcard--biz"><img src="media/mark-light-520.png" alt="" width="388" height="520"><p class="pcard__name">Markanız</p><p class="pcard__small">info@markaniz.com</p></div>
             </div>
           </div>
         </div>
@@ -298,6 +322,7 @@
             <a class="tier__cta" href="#basvuru" data-pick="Posaidon Pro Paketi">bu paketle başvur <span aria-hidden="true">→</span></a>
           </li>
         </ol>
+        <p class="pack__note">QR menüler için farklı tarifeler uygulanabilir.</p>
       </div>
     </section>
 
@@ -510,6 +535,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomWiggle.min.js"></script>
   <script src="js/config.js?v=2"></script>
-  <script src="js/main.js?v=51"></script>
+  <script src="js/main.js?v=70"></script>
 </body>
 </html>
